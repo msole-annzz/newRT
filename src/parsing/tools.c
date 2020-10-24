@@ -98,19 +98,21 @@ t_vector		parsing_coordinates(char *str, int *index)
 t_vector	parsing_angles(char *str, int *index)
 {
 	int			i;
+	double		pi_radian;
 	t_vector	rez;
 
+	pi_radian = PI / 180;
 	i = 0;
 	i = *index + 2;
-	rez.x = rt_atof(&str[i]);
+	rez.x = rt_atof(&str[i]) * pi_radian;
 	while (str[i] != ',')
 		i++;
 	i++;
-	rez.y = rt_atof(&str[i]);
+	rez.y = rt_atof(&str[i]) * pi_radian;
 	while (str[i] != ',')
 		i++;
 	i++;
-	rez.z = rt_atof(&str[i]);
+	rez.z = rt_atof(&str[i]) * pi_radian;
 	while (str[i] != ',')
 		i++;
 	i++;

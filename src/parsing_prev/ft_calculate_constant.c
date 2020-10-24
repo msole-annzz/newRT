@@ -71,7 +71,7 @@ void		calculate_constant(t_rtv *p, t_vector *start)
 	{
 		if (p->lights[n]->type == e_point)
 			p->lights[n]->pos = ft_sub_vectors(&p->lights[n]->pos, start);
-		n++;
+		n += 1;
 	}
 	n = 0;
 	while (n < p->n_objects)

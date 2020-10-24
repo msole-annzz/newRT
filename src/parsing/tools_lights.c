@@ -10,13 +10,13 @@ int		parsing_type(char *str, int *index)
 	i = *index + 1;
 	*index = *index + 1;
 	if ((find_quotes(str, index, "\"sun\"\0")))
-		return (rez = 3);
+		return (rez = e_direct);
 	*index = i;
 	if ((find_quotes(str, index, "\"lamp\"\0")))
-		return (rez = 2);
+		return (rez = e_point);
 	*index = i;
 	if ((find_quotes(str, index, "\"ambient\"\0")))
-		return (rez = 1);
+		return (rez = e_ambient);
 	return (rez);
 }
 

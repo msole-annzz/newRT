@@ -140,8 +140,8 @@ typedef struct		s_object
 	double			refraction;
 	double			min;
 	double			max;
-	double			r_min;
-	double			r_max;
+	double			r_min; // радиус в точке min
+	double			r_max; // радиус в точке max
 	int				check;
 	int				specular;
 	t_color			color;
@@ -170,7 +170,6 @@ typedef struct		s_rtv
 	char			*name_screen;
 	t_object		**object;
 	t_camera		*camera;
-	t_camera		camera1;
 	t_light			*light;
 	t_light			**lights;
 	double			x0;

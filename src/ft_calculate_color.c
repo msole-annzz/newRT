@@ -89,13 +89,11 @@ double		ft_calculate_lighting(t_rtv *p, t_cross *cross, t_vector *norm)
 {
 	t_vector	light_cross;
 	t_vector	reflect;
-	// t_light		*source;
 	int num = 0;
 	double		k_light;
 	double		shade;
 
 	shade = 0.0;
-	// source = p->light;
 	while (num < p->n_lights)
 	{
 		if (p->lights[num]->type == e_ambient)

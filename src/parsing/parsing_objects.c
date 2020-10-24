@@ -57,7 +57,7 @@ int		fill_objects_end(char *str, int *index, t_rtv *rt, int counter)
 		rt->object[rt->current_object]->angle = double_parsing(str, index);
 		counter = counter + 1;
 	}
-	else if (find_quotes(str, index, "\"normal\"\0"))
+	else if (find_quotes(str, index, "\"axis\"\0"))
 	{
 		rt->object[rt->current_object]->axis = \
 		parsing_coordinates(str, index);
@@ -66,7 +66,7 @@ int		fill_objects_end(char *str, int *index, t_rtv *rt, int counter)
 	}
 	else if (find_quotes(str, index, "\"axis_angle\"\0"))
 	{
-		rt->object[rt->current_object]->angle_n= \
+		rt->object[rt->current_object]->angle_n = \
 		parsing_coordinates(str, index);
 		*index = *index + 1;
 		counter = counter + 1;

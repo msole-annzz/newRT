@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msole <msole@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wrhett <wrhett@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 14:39:48 by wrhett            #+#    #+#             */
-/*   Updated: 2020/10/24 17:15:35 by msole            ###   ########.fr       */
+/*   Updated: 2020/10/24 20:46:48 by wrhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	print_navigation(t_rtv *p)
 
 void	ft_mlx_init(t_rtv *p, char *str)
 {
+	p->width = WIDHT;
+	p->height = HIGHT;
 	p->x0 = (p->width - 1) / 2.0;
 	p->y0 = (p->height - 1) / 2.0;
 	p->fov = (double)p->width;
@@ -92,7 +94,7 @@ int		main(int argc, char **argv)
 // 					!(scene->mouse = (t_mouse *)malloc(sizeof(t_mouse))))
 // 		memory_allocation_error();
 	read_file(&paint, argv[1]);
-	check_parsing(&paint); // DELETE ME
+	// check_parsing(&paint); // DELETE ME
 
 	//if ((fd = open(argv[1], O_RDONLY)) <= 0)
 	//	ft_exit(ERR_FILE_OPEN);
@@ -104,8 +106,8 @@ int		main(int argc, char **argv)
 	// 	ft_exit(ERR_CREAT_TO_ARR);
 	// paint.light = NULL;
 	// paint.camera = NULL;
-	paint.width = WIDHT;
-	paint.height = HIGHT;
+	// paint.width = WIDHT;
+	// paint.height = HIGHT;
 	paint.name_file = argv[1];
 	// init_tab_object(&paint, argv[1]);
 
