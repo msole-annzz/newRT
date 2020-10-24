@@ -1,0 +1,9 @@
+.DS_Store
+a.out*
+.vscode*
+*.o
+*.dSYM*
+*.d
+./RTv1
+*.ppm
+screen
