@@ -1,0 +1,64 @@
+{
+ "camera"   :{"position":[0,0,-3],
+           "direction":[0,0,0]
+            },
+ "lights": [
+
+         { "type":"ambient",
+           "position":[0,0,0],
+           "direction":[0,0,0],
+           "intensity":0.1,
+           "color":[75,150,150]
+         },
+         { "type":"sun",
+          "position":[0,0,0],
+          "direction":[3,3,-3],
+          "intensity":0.5,
+          "color":[75,150,150]
+        },
+        { "type":"lamp",
+          "position":[1,1,1],
+          "direction":[3,3,-3],
+          "intensity":0.5,
+          "color":[75,150,150]
+        },
+        { "type":"lamp",
+          "position":[2,1,6],
+          "direction":[3,3,-3],
+          "intensity":0.5,
+          "color":[0,150,0]
+        }
+            ],
+ "objects":[
+            { "type":"sphere",
+              "position":[5,3,4],
+              "radius":1,
+              "color":[200,0,0],
+              "angle":0.5,
+              "normal":[0,1,0],
+              "axis_angle":[0,1,6],
+              "k_paraboloid":0.01,
+              "specularity":1000,
+              "reflection":0,
+              "refraction": 15,
+              "high": -3,
+              "max": 6,
+              "min": 5.5
+            },
+            { "type":"plane",
+              "position":[0,-2,0],
+              "radius":0,
+              "color":[0,100,0],
+              "angle":0,
+              "normal":[0,0,0],
+              "k_paraboloid":100,
+              "axis_angle":[0,0,0],
+              "specularity":10,
+              "reflection":0,
+              "refraction": 115.36,
+              "high": -1515,
+              "max": 6,
+              "min": 5.5
+            }
+          ]
+}
