@@ -88,22 +88,3 @@ t_cross		ft_intersect_ray_tube(t_object *tube, t_vector *ray)
 	}
 	return (result);
 }
-
-// double		ft_intersect_circle_plane(t_vector *ray, t_object *plane, double r)
-// {
-// 	double		len_dist;
-// 	double		angle;
-// 	t_vector	delta;
-
-// 	angle = ft_vector_scalar(&plane->axis, ray);
-// 	if (angle >= 0)
-// 		return (NO_INTERSECT);
-// 	len_dist = ft_vector_scalar(&plane->pos, &plane->axis) / angle;
-// 	if (len_dist == NO_INTERSECT)
-// 		return (NO_INTERSECT);
-// 	delta = ft_multiply_vector_num(ray, len_dist);
-// 	delta= ft_sub_vectors(&delta, &plane->pos);
-// 	if (ft_vector_scalar(&delta, &delta) > (r * r))
-// 		return (NO_INTERSECT);
-// 	return (len_dist);
-// }

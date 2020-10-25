@@ -9,7 +9,8 @@ void	malloc_lightes_cont(int rez, t_rtv *rt)
 	while (rez > 0)
 	{
 		rez--;
-		if (!(rt->lights[rez] = (t_light *)malloc(sizeof(t_light ))))
+		// if (!(rt->lights[rez] = (t_light *)malloc(sizeof(t_light ))))
+		if (!(rt->lights[rez] = ft_memalloc(sizeof(t_light ))))
 			memory_allocation_error();
 		rt->lights[rez]->type = 0;
 	}
@@ -49,7 +50,8 @@ void	malloc_objects_cont(t_rtv *rt, int rez)
 	while (rez > 0)
 	{
 		rez--;
-		if (!(rt->object[rez] = (t_object *)malloc(sizeof(t_object))))
+		// if (!(rt->object[rez] = (t_object *)malloc(sizeof(t_object))))
+		if (!(rt->object[rez] = ft_memalloc(sizeof(t_object))))
 			memory_allocation_error();
 	}
 }

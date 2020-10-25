@@ -1,16 +1,5 @@
 #include "rtv1.h"
 
-// double		check_intersect(t_vector *ray, t_vector *pos,t_vector *axis, double len)
-// {
-// 	t_vector	intersect;
-// 	double		check;
-
-// 	intersect = ft_multiply_vector_num(ray, len);
-// 	intersect = ft_sub_vectors(&intersect, pos);
-// 	check = ft_vector_projection_on_ray(&intersect, axis);
-// 	return (check);
-// }
-
 void	calculate_len_plane(t_vector *ray, t_object *sphere, t_cross *result)
 {
 	t_vector	intersect;

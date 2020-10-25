@@ -6,7 +6,7 @@
 /*   By: wrhett <wrhett@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/02 16:09:11 by wrhett            #+#    #+#             */
-/*   Updated: 2020/10/19 21:40:20 by wrhett           ###   ########.fr       */
+/*   Updated: 2020/10/25 16:38:10 by wrhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,7 @@ void	camera_start(t_rtv *p)
 	calculate_constant(p, &start);
 	p->fov = (double)p->width;
 	p->depth_mirror = DEPTH_REFL;
-	p->aliasing = e_pull;
-	p->samples = NUM_SAMPLE;
+	p->samples = MIN_SAMPLE;
 	ft_paint_scene(p);
 }
 
@@ -143,19 +142,10 @@ void	reflect(t_rtv *p)
 
 void	aliasing_effects(t_rtv *p)
 {
-	if (p->aliasing == e_pull)
-		p->aliasing = e_push;
-	else if (p->aliasing == e_push)
-	{
-		if (p->samples < MAX_SAMPLE)
-			p->samples += 1;
-		else
-		{
-			p->samples = NUM_SAMPLE;
-			p->aliasing = e_pull;
-		}
-	}
-	// printf("ALIASING- %d, COUNT- %d\n", p->aliasing, p->samples);
+	if (p->samples < MAX_SAMPLE)
+		p->samples += 1;
+	else
+		p->samples = MIN_SAMPLE;
 	ft_paint_scene(p);
 }
 

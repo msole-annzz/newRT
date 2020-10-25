@@ -55,6 +55,7 @@ int		fill_objects_end(char *str, int *index, t_rtv *rt, int counter)
 	if (find_quotes(str, index, "\"angle\"\0"))
 	{
 		rt->object[rt->current_object]->angle = double_parsing(str, index);
+		rt->object[rt->current_object]->angle *= (PI / 180);
 		counter = counter + 1;
 	}
 	else if (find_quotes(str, index, "\"axis\"\0"))
@@ -68,6 +69,9 @@ int		fill_objects_end(char *str, int *index, t_rtv *rt, int counter)
 	{
 		rt->object[rt->current_object]->angle_n = \
 		parsing_coordinates(str, index);
+		rt->object[rt->current_object]->angle_n.x *= (PI / 180);
+		rt->object[rt->current_object]->angle_n.y *= (PI / 180);
+		rt->object[rt->current_object]->angle_n.z *= (PI / 180);
 		*index = *index + 1;
 		counter = counter + 1;
 	}
@@ -145,6 +149,7 @@ void	objects_parsing(char *str, int *index, t_rtv *rt)
 		counter = fill_objects(str, index, rt, counter);
 		if (counter == 14)
 		{
+			ft_rotate_vector(&rt->object[n]->angle_n, &rt->object[n]->axis);
 			n++;
 			counter = 0;
 			*index = *index + 1;

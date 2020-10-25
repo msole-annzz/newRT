@@ -65,7 +65,7 @@ int		find_option(char *str, int *index, int counter, t_rtv *rt)
 	//	printf ("error");
 		file_contents_error();
 	}
-//	printf("counter %d\n", counter);
+	// printf("counter - %d\n", counter);
 	return (counter);
 }
 
@@ -81,14 +81,12 @@ void	lights_parsing(char *str, int *index, t_rtv *rt)
 	malloc_lightes(str, index, rt);
 	*index = n + 2;
 	n = 0;
-	//while (rt->lights[n] != NULL)
 	while (n < rt->n_lights)
 	{
 		rt->current_light = n;
 		if ((counter == 0) && (n > 0))
 		{
-		//	printf ("%d\n",n);
-			*index= *index + 1;
+			*index = *index + 1;
 		}
 		counter = find_option(str, index, counter, rt);
 		if (counter == 5)
@@ -97,5 +95,4 @@ void	lights_parsing(char *str, int *index, t_rtv *rt)
 			counter = 0;
 		}
 	}
-	printf ("%d\n",n);
 }

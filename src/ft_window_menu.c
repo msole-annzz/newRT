@@ -52,14 +52,11 @@ static void	print_navigation_menu_2(t_rtv *p)
 	char	*str;
 	char	*coord;
 
-	if (p->aliasing == e_push)
-	{
-		coord = ft_itoa(p->samples);
-		str = ft_strjoin("Count samples: ", coord);
-		mlx_string_put(p->mlx_ptr, p->menu_ptr, 20, 120, COLOR_STR, str);
-		free(coord);
-		free(str);
-	}
+	coord = ft_itoa(p->samples);
+	str = ft_strjoin("Count samples: ", coord);
+	mlx_string_put(p->mlx_ptr, p->menu_ptr, 20, 120, COLOR_STR, str);
+	free(coord);
+	free(str);
 }
 
 static void	print_instructions(t_rtv *p)

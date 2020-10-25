@@ -20,7 +20,7 @@ void	camera_parsing(char *str, int *index, t_rtv *rt)
 			*index += 1;
 			checker++;
 		}
-		else if (find_quotes(str, index, "\"direction\"\0"))
+		else if (find_quotes(str, index, "\"angle_direction\"\0"))
 		{
 			rt->camera->angle= parsing_angles(str, index);//rt->camera.rotate
 			checker++;

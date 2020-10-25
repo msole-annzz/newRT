@@ -28,16 +28,14 @@ int		ft_chose_sampling(t_rtv *paint, int x, int y)
 	ray.x = (double)x - (double)paint->x0;
 	ray.y = (double)paint->y0 - (double)y;
 	ray.z = paint->fov;
-	if (paint->aliasing == e_pull)
+	if (paint->samples == MIN_SAMPLE)
 	{
 		ray = ft_rotation_vector(&paint->camera->angle, &ray);
 		ft_unit_vector(&ray);
 		color = ft_color_object(paint, &ray);
 	}
-	if (paint->aliasing == e_push)
-	{
+	else
 		color = ft_aliasing_effects(paint, &ray);
-	}
 	return (color);
 }
 

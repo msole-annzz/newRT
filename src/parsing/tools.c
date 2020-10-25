@@ -75,7 +75,7 @@ int			find_quotes(char *str, int *index, char *mask)
 
 t_vector		parsing_coordinates(char *str, int *index)
 {
-	int		i;
+	int			i;
 	t_vector	rez;
 
 	i = 0;
@@ -99,23 +99,23 @@ t_vector	parsing_angles(char *str, int *index)
 {
 	int			i;
 	double		pi_radian;
-	t_vector	rez;
+	t_vector	result;
 
 	pi_radian = PI / 180;
 	i = 0;
 	i = *index + 2;
-	rez.x = rt_atof(&str[i]) * pi_radian;
+	result.x = rt_atof(&str[i]) * pi_radian;
 	while (str[i] != ',')
 		i++;
 	i++;
-	rez.y = rt_atof(&str[i]) * pi_radian;
+	result.y = rt_atof(&str[i]) * pi_radian;
 	while (str[i] != ',')
 		i++;
 	i++;
-	rez.z = rt_atof(&str[i]) * pi_radian;
+	result.z = rt_atof(&str[i]) * pi_radian;
 	while (str[i] != ',')
 		i++;
 	i++;
 	*index = i;
-	return (rez);
+	return (result);
 }

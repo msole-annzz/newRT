@@ -6,7 +6,7 @@
 /*   By: wrhett <wrhett@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 14:39:48 by wrhett            #+#    #+#             */
-/*   Updated: 2020/10/24 20:46:48 by wrhett           ###   ########.fr       */
+/*   Updated: 2020/10/25 16:36:03 by wrhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,15 @@ void	print_navigation(t_rtv *p)
 
 void	ft_mlx_init(t_rtv *p, char *str)
 {
+	p->mlx_ptr = mlx_init();
+	p->win_ptr = mlx_new_window(p->mlx_ptr, p->width, p->height, str);
+	p->img_ptr = mlx_new_image(p->mlx_ptr, p->width, p->height);
+	p->draw =
+	(int *)mlx_get_data_addr(p->img_ptr, &p->bpp, &p->size_line, &p->endian);
+}
+
+void	ft_init_configuration(t_rtv *p, char *str)
+{
 	p->width = WIDHT;
 	p->height = HIGHT;
 	p->x0 = (p->width - 1) / 2.0;
@@ -51,18 +60,11 @@ void	ft_mlx_init(t_rtv *p, char *str)
 	p->mouse_x = 0;
 	p->mouse_y = 0;
 	p->window_menu = CLOSED;
-	p->aliasing = e_pull;
-	p->samples = NUM_SAMPLE;
+	p->samples = MIN_SAMPLE;
 	p->depth_mirror = DEPTH_REFL;
 	p->depth_refract = DEPTH_REFR;
 	p->camera->dir.z = p->fov;
-	p->mlx_ptr = mlx_init();
-	p->win_ptr = mlx_new_window(p->mlx_ptr, p->width, p->height, str);
-	p->img_ptr = mlx_new_image(p->mlx_ptr, p->width, p->height);
-	// p->image = mlx_get_data_addr(p->img_ptr, &p->bpp, &p->size_line, &p->endian);
-	// p->draw = (int *)p->image;
-	p->draw =
-	(int *)mlx_get_data_addr(p->img_ptr, &p->bpp, &p->size_line, &p->endian);
+	ft_mlx_init(p, str);
 }
 
 void	ft_paint_scene(t_rtv *paint)
@@ -114,7 +116,7 @@ int		main(int argc, char **argv)
 
 
 
-	ft_mlx_init(&paint, argv[1]);
+	ft_init_configuration(&paint, argv[1]);
 	calculate_constant(&paint, &paint.camera->start);
 	ft_paint_scene(&paint);
 	ft_hook_operation(&paint);

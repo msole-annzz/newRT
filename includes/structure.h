@@ -156,7 +156,6 @@ typedef struct		s_rtv
 	void			*win_ptr;
 	void			*img_ptr;
 	int				*draw;
-	// char			*image;
 	void			*menu_ptr;
 	void			*menu_img;
 	int				*menu;
@@ -165,7 +164,6 @@ typedef struct		s_rtv
 	int				endian;
 	int				width;
 	int				height;
-	// int				num;
 	char			*name_file;
 	char			*name_screen;
 	t_object		**object;
@@ -181,26 +179,20 @@ typedef struct		s_rtv
 	int				window_menu;
 	int				depth_mirror;
 	int				depth_refract;
-	int				aliasing;
 	int				samples;
+	int				n_lights;//  для выделения памяти
+	int				current_light;//  для выделения памяти
+	int				n_objects; // count objhects
 	int				current_object;//  для выделения памяти под объекты
-	int n_lights;//  для выделения памяти
-	int current_light;//  для выделения памяти
-	int n_objects;
 }					t_rtv;
 
 typedef struct		s_data
 {
 	t_rtv			*all;
-	// t_camera		camera;
-	// t_vector		ray;
 	int				width;
-	// int				height;
 	int				y_start;
 	int				y_end;
 	int				x;
-	// double			x0;
-	// double			y0;
 }					t_data;
 
 typedef struct		s_array

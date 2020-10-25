@@ -78,8 +78,3 @@ int			ft_refraction(t_rtv *p, t_start *data, double *min_refract)
 	}
 	return (calculate_result_color(color, new.depth, p->depth_refract));
 }
-
-// new.normal =
-// calculate_vector_norm(p->object[refract.id], &refract, &new.ray);
-// color[new.depth][0] = ft_local_color(p, &refract, &new.normal);
-// color[new.depth][1] = p->object[refract.id]->refraction;
